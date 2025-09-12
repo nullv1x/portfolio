@@ -8,11 +8,11 @@
       "description": "Ejercicios prácticos para dominar el objeto Math de JavaScript, incluyendo operaciones matemáticas, números aleatorios y redondeo.",
       "category": "JavaScript",
       "subcategory": "Fundamentos",
-      "trimester": 1,
-      "semester": "2024-2",
+      "trimester": 3,
+      "semester": "2025-2",
       "status": "completed",
       "difficulty": "beginner",
-      "duration": "1 semana",
+      "duration": "2 days",
       "technologies": ["JavaScript", "HTML5", "CSS3", "DOM"],
       "features": [
         "20 ejercicios interactivos",
@@ -61,7 +61,7 @@
   "stats": {
     "total_projects": 1,
     "completed_projects": 1,
-    "current_trimester": 1,
-    "start_date": "2024-08-01"
+    "current_trimester": 3,
+    "start_date": "2025-09-12"
   }
 }
