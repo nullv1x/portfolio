@@ -1,0 +1,20 @@
+{
+  "extends": "../../data/projects-config.json#/projects/0",
+  "local_features": {
+    "exercises_count": 20,
+    "interactive_elements": 20,
+    "math_operations": ["round", "random", "pow", "sqrt", "cbrt", "abs", "min", "max", "floor", "ceil"],
+    "responsive_design": true
+  },
+  "screenshots_taken": "2024-09-12",
+  "deployment": {
+    "url": "https://tu-usuario.github.io/sena-portfolio/projects/01-javascript-fundamentals/",
+    "status": "deployed"
+  },
+  "code_metrics": {
+    "files": 21,
+    "lines_of_code": 500,
+    "functions": 20,
+    "documentation_lines": 150
+  }
+}

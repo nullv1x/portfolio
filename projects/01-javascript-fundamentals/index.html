@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduccion JS - Ejercicios</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="header">
+        <h1>Análisis y Desarrollo de Software</h1>
+    </div>
+    <!-- HEADER -->
+
+    <!-- BOTON PARA REGRESAR A LA PAGINA PRINCIPAL --> 
+    <button class="button-back" onclick="location.href='../../index.html'">
+        Volver
+    </button>
+
+    <!-- CONTENEDOR DE CARDS -->
+    <div class="cards-container">
+        <!-- CARD UNO -->
+        <div class="card">
+            <h2>Ejercicio 1: Redondear a 2 decimales</h2>
+            <button onclick="ejercicio1()">Mostrar resultado</button>
+            <div class="resultado" id="resultado1"></div>
+        </div>
+        <!-- CARD UNO -->
+
+        <!-- CARD DOS -->
+        <div class="card">
+            <h2>Ejercicio 2: Generar un número entero aleatorio entre 10 y 50.</h2>
+            <button onclick="ejercicio2()">Mostrar resultado</button>
+            <div class="resultado" id="resultado2"></div>
+        </div>
+        <!-- CARD DOS -->
+
+        <!-- CARD TRES -->
+        <div class="card">
+            <h2>Ejercicio 3: Calcular el área de un círculo de 5cm de radio.</h2>
+            <button onclick="ejercicio3()">Mostrar resultado</button>
+            <div class="resultado" id="resultado3"></div>
+        </div>
+        <!-- CARD TRES -->
+
+        <!-- CARD CUARTO -->
+        <div class="card">
+            <h2>Ejercicio 4: Calcular la hipotenusa de un triángulo rectángulo dados sus catetos.</h2>
+            <button onclick="ejercicio4()">Mostrar resultado</button>
+            <div class="resultado" id="resultado4"></div>
+        </div>
+        <!-- CARD CUARTO -->
+
+        <!-- CARD CINCO -->
+        <div class="card">
+            <h2>Ejercicio 5: Calcular la hipotenusa de un triángulo rectángulo dados sus catetos.</h2>
+            <button onclick="ejercicio5()">Mostrar resultado</button>
+            <div class="resultado" id="resultado5"></div>
+        </div>
+        <!-- CARD CINCO -->
+
+        <!-- CARD SEIS -->
+        <div class="card">
+            <h2>Ejercicio 6: Redondear siempre hacia arriba el precio de un producto con decimales.</h2>
+            <button onclick="ejercicio6()">Mostrar resultado</button>
+            <div class="resultado" id="resultado6"></div>
+        </div>
+        <!-- CARD SEIS -->
+
+        <!-- CARD SIETE -->
+        <div class="card">
+            <h2>Ejercicio 7: Redondear siempre hacia abajo el número de páginas cuando se imprime un
+            documento.</h2>
+            <button onclick="ejercicio7()">Mostrar resultado</button>
+            <div class="resultado" id="resultado7"></div>
+        </div>
+        <!-- CARD SEIS -->
+
+        <!-- CARD OCHO -->
+        <div class="card">
+            <h2>Ejercicio 8: Calcular la potencia de un número.</h2>
+            <button onclick="ejercicio8()">Mostrar resultado</button>
+            <div class="resultado" id="resultado8"></div>
+        </div>
+        <!-- CARD OCHO -->
+
+        <!-- CARD NUEVE -->
+        <div class="card">
+            <h2>Ejercicio 9: Calcular la potencia de un número.</h2>
+            <button onclick="ejercicio9()">Mostrar resultado</button>
+            <div class="resultado" id="resultado9"></div>
+        </div>
+        <!-- CARD NUEVE -->
+
+        <!-- CARD DIEZ -->
+        <div class="card">
+            <h2>Ejercicio 10: Generar una contraseña numérica aleatoria de 6 dígitos..</h2>
+            <button onclick="ejercicio10()">Mostrar resultado</button>
+            <div class="resultado" id="resultado10"></div>
+        </div>
+        <!-- CARD DIEZ -->
+
+        <!-- CARD ONCE -->
+        <div class="card">
+            <h2>Ejercicio 11: Encontrar el número mayor y menor en un arreglo de 20 números.</h2>
+            <button onclick="ejercicio11()">Mostrar resultado</button>
+            <div class="resultado" id="resultado11"></div>
+        </div>
+        <!-- CARD ONCE -->
+
+        <!-- CARD DOCE -->
+        <div class="card">
+            <h2>Ejercicio 12: Simular el lanzamiento de un dado de 6 caras.</h2>
+            <button onclick="ejercicio12()">Mostrar resultado</button>
+            <div class="resultado" id="resultado12"></div>
+        </div>
+        <!-- CARD DOCE -->
+
+        <!-- CARD TRECE -->
+        <div class="card">
+            <h2>Ejercicio 13: Simular el lanzamiento de una moneda.</h2>
+            <button onclick="ejercicio13()">Mostrar resultado</button>
+            <div class="resultado" id="resultado13"></div>
+        </div>
+        <!-- CARD TRECE -->
+
+        <!-- CARD CATORCE -->
+        <div class="card">
+            <h2>Ejercicio 14: Calcular la diagonal de un rectángulo dados su base y altura .</h2>
+            <button onclick="ejercicio14()">Mostrar resultado</button>
+            <div class="resultado" id="resultado14"></div>
+        </div>
+        <!-- CARD CATORCE -->
+
+        <!-- CARD QUINCE -->
+        <div class="card">
+            <h2>Ejercicio 15: Redondear un número decimal al múltiplo de 10 más cercano.</h2>
+            <button onclick="ejercicio15()">Mostrar resultado</button>
+            <div class="resultado" id="resultado15"></div>
+        </div>
+        <!-- CARD QUINCE -->
+
+        <!-- CARD DIECISEIS -->
+        <div class="card">
+            <h2>Ejercicio 16: Convertir grados a radianes y radianes a grados.</h2>
+            <button onclick="ejercicio16()">Mostrar resultado</button>
+            <div class="resultado" id="resultado16"></div>
+        </div>
+        <!-- CARD DIECISEIS -->
+
+        <!-- CARD DIECISIETE -->
+        <div class="card">
+            <h2>Ejercicio 17: Convertir grados a radianes y radianes a grados.</h2>
+            <button onclick="ejercicio17()">Mostrar resultado</button>
+            <div class="resultado" id="resultado17"></div>
+        </div>
+        <!-- CARD DIECISIETE -->
+
+        <!-- CARD DIECIOCHO -->
+        <div class="card">
+            <h2>Ejercicio 18: Generar un número aleatorio impar entre 1 y 99.</h2>
+            <button onclick="ejercicio18()">Mostrar resultado</button>
+            <div class="resultado" id="resultado18"></div>
+        </div>
+        <!-- CARD DIECIOCHO -->
+
+        <!-- CARD DIECINUEVE -->
+        <div class="card">
+            <h2>Ejercicio 19: Determinar si un número es potencia de 2 usando Math.log2.</h2>
+            <button onclick="ejercicio19()">Mostrar resultado</button>
+            <div class="resultado" id="resultado19"></div>
+        </div>
+        <!-- CARD DIECINUEVE -->
+
+        <!-- CARD VEINTE -->
+        <div class="card">
+            <h2>Ejercicio 20: Determinar si un número es primo.</h2>
+            <button onclick="ejercicio20()">Mostrar resultado</button>
+            <div class="resultado" id="resultado20"></div>
+        </div>
+        <!-- CARD VEINTE -->
+
+    </div>
+    <!-- CONTENEDOR DE CARDS -->
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>JavaScript Introduction</p>
+        <p class="hashtag">#07_colo</p>
+    </div>
+    <!-- FOOTER -->
+
+    <!-- Conexion a JavaScript -->
+
+    <script src="exercises/oneExercise.js"></script>
+    <script src="exercises/twoExercise.js"></script>
+    <script src="exercises/threeExercise.js"></script>
+    <script src="exercises/fourExercise.js"></script>
+    <script src="exercises/fiveExercise.js"></script>
+    <script src="exercises/sixExercise.js"></script>
+    <script src="exercises/sevenExercise.js"></script>
+    <script src="exercises/eightExercise.js"></script>
+    <script src="exercises/nineExercise.js"></script>
+    <script src="exercises/tenExercise.js"></script>
+    <script src="exercises/elevenExercise.js"></script>
+    <script src="exercises/twelveExercise.js"></script>
+    <script src="exercises/treceExercise.js"></script>
+    <script src="exercises/fourteenExercise.js"></script>
+    <script src="exercises/fifteenExercise.js"></script>
+    <script src="exercises/sixteenExercise.js"></script>
+    <script src="exercises/seventeenExercise.js"></script>
+    <script src="exercises/eightteenExercise.js"></script>
+    <script src="exercises/ninetenExercise.js"></script>
+    <script src="exercises/twentyExercise.js"></script>
+
+    <!-- Conexion a JavaScript -->
+
+</body>
+</html>
