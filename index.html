@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Manuel Colorado - Portafolio SENA</title>
+    <link rel="stylesheet" href="global-styles.css">
+    <link rel="icon" href="assets/icons/favicon.ico">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="main-nav">
+            <div class="logo">
+                <h1>Juan Manuel Colorado</h1>
+                <p>Análisis y Desarrollo de Software - SENA</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="pages/about.html">Sobre Mí</a></li>
+                <li><a href="pages/contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Portafolio de Desarrollo de Software</h2>
+            <p>Documentando mi aprendizaje en el SENA, proyecto a proyecto</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" id="total-projects">0</span>
+                    <span class="stat-label">Proyectos</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="technologies-count">0</span>
+                    <span class="stat-label">Tecnologías</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="current-trimester">1</span>
+                    <span class="stat-label">Trimestre</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters">
+                <input type="search" id="search-projects" placeholder="Buscar proyectos...">
+                <select id="filter-category">
+                    <option value="">Todas las categorías</option>
+                </select>
+                <select id="filter-status">
+                    <option value="">Todos los estados</option>
+                    <option value="completed">Completados</option>
+                    <option value="in-progress">En progreso</option>
+                    <option value="planned">Planeados</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <main class="main-content">
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2>Mis Proyectos del SENA</h2>
+                <div id="projects-grid" class="projects-grid">
+                    <!-- Projects will be loaded dynamically -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <p>&copy; 2024 Juan Manuel Colorado - SENA ADS</p>
+        <div class="social-links">
+            <a href="https://github.com/tu-usuario" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/tu-perfil" target="_blank">LinkedIn</a>
+        </div>
+    </footer>
+
+    <!-- Modal para detalles de proyectos -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-body">
+                <!-- Content loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+{
+  "projects": [
+    {
+      "id": "01",
+      "slug": "javascript-fundamentals",
+      "title": "Fundamentos de JavaScript",
+      "subtitle": "20 Ejercicios con Math Object",
+      "description": "Ejercicios prácticos para dominar el objeto Math de JavaScript, incluyendo operaciones matemáticas, números aleatorios y redondeo.",
+      "category": "JavaScript",
+      "subcategory": "Fundamentos",
+      "trimester": 1,
+      "semester": "2024-2",
+      "status": "completed",
+      "difficulty": "beginner",
+      "duration": "1 semana",
+      "technologies": ["JavaScript", "HTML5", "CSS3", "DOM"],
+      "features": [
+        "20 ejercicios interactivos",
+        "UI responsive con CSS Grid",
+        "Resultados en tiempo real",
+        "Código bien documentado"
+      ],
+      "learning_objectives": [
+        "Dominar el objeto Math de JavaScript",
+        "Manipulación del DOM",
+        "Funciones JavaScript",
+        "Responsive Design"
+      ],
+      "path": "/projects/01-javascript-fundamentals/",
+      "demo_url": "projects/01-javascript-fundamentals/index.html",
+      "repo_url": "https://github.com/tu-usuario/sena-portfolio",
+      "screenshots": [
+        "assets/images/projects/js-fundamentals-home.png",
+        "assets/images/projects/js-fundamentals-exercises.png"
+      ],
+      "instructor": "Nombre del instructor",
+      "deliverable_date": "2024-09-15",
+      "grade": null,
+      "tags": ["math", "ejercicios", "beginner", "fundamentos"],
+      "created_date": "2024-09-12",
+      "updated_date": "2024-09-12"
+    }
+  ],
+  "categories": [
+    {
+      "name": "JavaScript",
+      "color": "#f7df1e",
+      "icon": "javascript.svg"
+    },
+    {
+      "name": "Frontend",
+      "color": "#61dafb", 
+      "icon": "frontend.svg"
+    },
+    {
+      "name": "Backend",
+      "color": "#339933",
+      "icon": "backend.svg"
+    }
+  ],
+  "stats": {
+    "total_projects": 1,
+    "completed_projects": 1,
+    "current_trimester": 1,
+    "start_date": "2024-08-01"
+  }
+}
