@@ -36,7 +36,7 @@ class PortfolioApp {
         const statusClass = project.status;
         const statusText = {
             'completed': 'Completado',
-            'in-progress': 'En Progreso', 
+            'in-progress': 'En Progreso',
             'planned': 'Planeado'
         };
 
@@ -58,7 +58,7 @@ class PortfolioApp {
                     <p class="description">${project.description}</p>
                     
                     <div class="technologies">
-                        ${project.technologies.map(tech => 
+                        ${project.technologies.map(tech =>
                             `<span class="tech-tag">${tech}</span>`
                         ).join('')}
                     </div>
@@ -118,7 +118,7 @@ class PortfolioApp {
             const technologies = Array.from(card.querySelectorAll('.tech-tag'))
                 .map(tag => tag.textContent.toLowerCase()).join(' ');
             
-            const matches = title.includes(searchTerm.toLowerCase()) || 
+            const matches = title.includes(searchTerm.toLowerCase()) ||
                           description.includes(searchTerm.toLowerCase()) ||
                           technologies.includes(searchTerm.toLowerCase());
             
@@ -173,9 +173,9 @@ class PortfolioApp {
 }
 
 // Inicializar la aplicación cuando el DOM esté listo
-let portfolioApp;
 document.addEventListener('DOMContentLoaded', () => {
-    portfolioApp = new PortfolioApp();
+    // ✨ CAMBIO CLAVE: Asignamos la instancia a window.portfolioApp
+    window.portfolioApp = new PortfolioApp();
 });
 
 // Cerrar modal
