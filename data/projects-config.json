@@ -28,12 +28,12 @@
       ],
       "path": "/projects/01-javascript-fundamentals/",
       "demo_url": "projects/01-javascript-fundamentals/index.html",
-      "repo_url": "https://github.com/tu-usuario/sena-portfolio",
+      "repo_url": "https://github.com/nullv1x/sena-portfolio.git",
       "screenshots": [
         "assets/images/projects/js-fundamentals-home.png",
         "assets/images/projects/js-fundamentals-exercises.png"
       ],
-      "instructor": "Nombre del instructor",
+      "instructor": "Edwar Velazquez",
       "deliverable_date": "2024-09-15",
       "grade": null,
       "tags": ["math", "ejercicios", "beginner", "fundamentos"],
