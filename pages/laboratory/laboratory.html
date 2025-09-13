@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio - Portafolio SENA</title>
+    <link rel="stylesheet" href="../../global-styles.css">
+    <link rel="stylesheet" href="laboratory.css">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='15' fill='%233f3f3f'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Segoe UI, sans-serif' font-size='60' font-weight='bold' fill='%23FF8C00'%3EJM%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-nav">
+            <div class="logo"><h1>Juan Manuel Colorado</h1><p>Análisis y Desarrollo de Software - SENA</p></div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Proyectos</a></li>
+                <li><a href="#">Laboratorio</a></li>
+                <li><a href="../about.html">Sobre Mí</a></li>
+                <li><a href="../contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="lab-container">
+        <div class="lab-header">
+            <h2>El Laboratorio de Código</h2>
+            <p>Una colección de componentes y fragmentos de código. Cada pieza es un experimento en diseño y funcionalidad. Siéntete libre de explorar y usar lo que necesites.</p>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="css">CSS</button>
+            <button class="filter-btn" data-filter="javascript">JavaScript</button>
+        </div>
+
+        <div class="experiments-grid">
+            <div class="experiment-card" data-category="css">
+                <div class="demo-area">
+                    <button class="pulse-button">Haz Clic</button>
+                </div>
+                <div class="card-info">
+                    <h3>Botón con Pulso</h3>
+                    <button class="code-btn" data-experiment-id="pulseButton">Ver Código</button>
+                </div>
+            </div>
+            <div class="experiment-card" data-category="css">
+                <div class="demo-area">
+                    <input type="checkbox" id="toggle1" class="toggle-checkbox">
+                    <label for="toggle1" class="toggle-label"><div class="toggle-switch"></div></label>
+                </div>
+                <div class="card-info">
+                    <h3>Toggle Futurista</h3>
+                    <button class="code-btn" data-experiment-id="futureToggle">Ver Código</button>
+                </div>
+            </div>
+            </div>
+    </div>
+
+    <div id="code-modal" class="code-modal">
+        <div class="code-modal-content">
+            <div class="code-modal-header">
+                <h3 id="modal-title">Código del Componente</h3>
+                <span class="close-modal" id="close-modal">&times;</span>
+            </div>
+            <div class="code-tabs">
+                <button id="html-tab" class="tab-btn active" data-tab="html">HTML</button>
+                <button id="css-tab" class="tab-btn" data-tab="css">CSS</button>
+            </div>
+            <div class="code-display">
+                <button class="copy-code-btn" id="copy-code-btn">Copiar</button>
+                <pre><code id="html-code" class="active"></code></pre>
+                <pre><code id="css-code"></code></pre>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer" style="margin-top: 4rem;">
+        <p>&copy; 2025 Juan Manuel Colorado - SENA ADSO</p>
+        <div class="social-links">
+            <a href="https://github.com/nullv1x" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/juan-manuel-colorado-duque" target="_blank">LinkedIn</a>
+        </div>
+    </footer>
+
+    <script src="laboratory.js"></script>
+</body>
+</html>
