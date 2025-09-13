@@ -9,7 +9,7 @@ Este repositorio contiene el código fuente de mi portafolio personal como apren
 
 El portafolio está diseñado con una estética futurista y de "glassmorphism", e incluye secciones interactivas como una **terminal de comandos funcional** para una experiencia de usuario única y memorable.
 
-**Visita el portafolio en vivo:** [**tu-usuario.github.io/sena-portfolio/**](https://null_v1x.github.io/sena-portfolio/) 
+**Visita el portafolio en vivo:** [**https://nullv1x.github.io/sena-portfolio/**](https://nullv1x.github.io/sena-portfolio/) 
 
 ##  - Características Principales
 
