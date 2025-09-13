@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mí - Portafolio SENA</title>
+    <link rel="stylesheet" href="../global-styles.css">
+    <link rel="icon" href="../assets/icons/favicon.ico">
+
+    <style>
+        /* Estilos para la terminal */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .terminal-window {
+            width: 90%;
+            max-width: 800px;
+            height: 500px;
+            background: rgba(20, 20, 30, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .terminal-header {
+            background: #333;
+            padding: 8px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
+
+        .terminal-body {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            color: #E0E0E0;
+            font-size: 14px;
+        }
+
+        .terminal-line {
+            line-height: 1.5; /* Espaciado entre líneas */
+        }
+        
+        .prompt {
+            color: #00FFC2; /* Color cian para el prompt */
+        }
+
+        .user-input {
+            color: #FFF; /* Color blanco para el texto ingresado por el usuario */
+        }
+
+        #input-line {
+            display: flex; /* Para alinear el prompt y el campo de entrada */
+        }
+
+        #command-input {
+            background: transparent;
+            border: none;
+            color: #FFF;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            flex-grow: 1;
+        }
+        #command-input:focus {
+            outline: none;
+        }
+        
+        @keyframes blink {
+            50% {
+                background: transparent;
+            }
+        }
+
+        /* Clases para dar formato al texto de salida */
+        .output-command { color: #00FFC2; }
+        .output-error { color: #ff5f56; }
+        .output-link { color: #ffbd2e; text-decoration: underline; }
+        .output-title { color: var(--sena-orange); font-weight: bold; }
+    </style>
+</head>
+<body>
+    
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <div class="header-button red"></div>
+            <div class="header-button yellow"></div>
+            <div class="header-button green"></div>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+            </div>
+        <div class="terminal-line" id="input-line">
+            <span class="prompt">user@anonymous:~$</span>
+            <input type="text" id="command-input" autocomplete="on" autofocus>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const terminalBody = document.getElementById('terminal-body');
+            const commandInput = document.getElementById('command-input');
+            const inputLine = document.getElementById('input-line');
+            let commandHistory = [];
+            let historyIndex = -1;
+
+            const commands = {
+                'help': `
+                    <span class="output-title">Comandos disponibles:</span><br>
+                    <strong>whoami</strong>     - Muestra mi biografía.<br>
+                    <strong>skills</strong>     - Lista mis habilidades técnicas.<br>
+                    <strong>projects</strong>   - Te lleva a la sección de proyectos.<br>
+                    <strong>contact</strong>    - Muestra cómo puedes contactarme.<br>
+                    <strong>socials</strong>    - Despliega mis redes sociales.<br>
+                    <strong>clear</strong>      - Limpia la pantalla de la terminal.<br>
+                    <strong>exit</strong>       - Vuelve a la página principal del portafolio.
+                `,
+                'whoami': `
+                    <span class="output-title">Juan Manuel Colorado</span><br>
+                    Aprendiz de Análisis y Desarrollo de Software (ADSO) en el SENA.<br>
+                    Me especializo en transformar ideas en soluciones de software robustas y escalables. Mi enfoque se centra en el desarrollo backend, pero disfruto creando experiencias de usuario completas. Me apasiona el aprendizaje constante y aplicar nuevas tecnologías para resolver problemas del mundo real.
+                `,
+                'skills': `
+                    <span class="output-title">Habilidades Técnicas:</span><br>
+                    - <strong>Lenguajes:</strong> JavaScript (Node.js), Python, SQL<br>
+                    - <strong>Frontend:</strong> HTML5, CSS3, React<br>
+                    - <strong>Backend:</strong> Express.js, APIs REST<br>
+                    - <strong>Bases de Datos:</strong> PostgreSQL, MongoDB<br>
+                    - <strong>Herramientas:</strong> Git, GitHub, Docker, Figma
+                `,
+                'projects': () => {
+                    typeText('Redirigiendo a la sección de proyectos...', () => {
+                        window.location.href = '../index.html#projects';
+                    });
+                    return '';
+                },
+                'contact': `
+                    <span class="output-title">Información de Contacto:</span><br>
+                    Puedes enviarme un correo electrónico a:<br>
+                    <a href="mailto:juanm_coloradod@soy.sena.edu.co" class="output-link">juanm_coloradod@soy.sena.edu.co</a>
+                `,
+                'socials': `
+                    <span class="output-title">Redes Sociales:</span><br>
+                    - <a href="https://github.com/nullv1x" target="_blank" class="output-link">GitHub</a><br>
+                    - <a href="https://www.linkedin.com/in/juan-manuel-colorado-duque" target="_blank" class="output-link">LinkedIn</a>
+                `,
+                'exit': () => {
+                    typeText('Cerrando sesión y volviendo al portafolio principal...', () => {
+                        window.location.href = '../index.html';
+                    });
+                    return '';
+                },
+                'clear': () => {
+                    terminalBody.innerHTML = '';
+                    return '';
+                }
+            };
+
+            const typeText = (text, callback) => {
+                const line = document.createElement('div');
+                line.classList.add('terminal-line');
+                terminalBody.appendChild(line);
+
+                let i = 0;
+                const interval = setInterval(() => {
+                    if (i < text.length) {
+                        line.innerHTML += text.charAt(i);
+                        i++;
+                        scrollToBottom();
+                    } else {
+                        clearInterval(interval);
+                        if (callback) callback();
+                    }
+                }, 25);
+            };
+
+            const executeCommand = (cmd) => {
+                // Muestra el comando que el usuario escribió
+                const commandLine = document.createElement('div');
+                commandLine.innerHTML = `<span class="prompt">user@anonymous:~$ </span> <span class="user-input">${cmd}</span>`;
+                terminalBody.appendChild(commandLine);
+
+                const output = document.createElement('div');
+                output.classList.add('terminal-line');
+
+                if (commands[cmd]) {
+                    const result = commands[cmd];
+                    if (typeof result === 'function') {
+                        result(); // Ejecuta la función para comandos especiales como 'exit'
+                    } else {
+                        output.innerHTML = result;
+                        terminalBody.appendChild(output);
+                    }
+                } else {
+                    output.innerHTML = `<span class="output-error">Comando no encontrado: ${cmd}. Escribe 'help' para ver la lista de comandos.</span>`;
+                    terminalBody.appendChild(output);
+                }
+
+                commandHistory.unshift(cmd);
+                historyIndex = -1;
+                scrollToBottom();
+            };
+
+            const scrollToBottom = () => {
+                terminalBody.scrollTop = terminalBody.scrollHeight;
+            };
+
+            commandInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    const command = commandInput.value.trim().toLowerCase();
+                    if (command) {
+                        executeCommand(command);
+                        commandInput.value = '';
+                    }
+                } else if (e.key === 'ArrowUp') {
+                    if (historyIndex < commandHistory.length - 1) {
+                        historyIndex++;
+                        commandInput.value = commandHistory[historyIndex];
+                    }
+                } else if (e.key === 'ArrowDown') {
+                     if (historyIndex > 0) {
+                        historyIndex--;
+                        commandInput.value = commandHistory[historyIndex];
+                    } else {
+                        historyIndex = -1;
+                        commandInput.value = '';
+                    }
+                }
+            });
+
+            // Al hacer clic en la terminal, enfocar el input
+            terminalBody.addEventListener('click', () => {
+                commandInput.focus();
+            });
+
+            // Mensaje de bienvenida inicial
+            typeText("Bienvenido a mi terminal. Escribe 'help' para comenzar.", () => {
+                commandInput.focus();
+            });
+        });
+    </script>
+</body>
+</html>
