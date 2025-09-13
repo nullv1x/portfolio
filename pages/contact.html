@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Portafolio SENA</title>
+    <link rel="stylesheet" href="../global-styles.css">
+    <link rel="icon" href="../assets/icons/favicon.ico">
+
+    <style>
+        .contact-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .contact-header h2 {
+            font-size: 2.5rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .contact-header p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            opacity: 0.8;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .contact-channels {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .channel-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 17px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+        .channel-card:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.3);
+            border-color: var(--text-secondary);
+        }
+        .channel-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .channel-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .channel-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-form-container {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 17px;
+            padding: 2.5rem;
+            box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            font-size: 1rem;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(6px);
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--sena-orange);
+            box-shadow: 0 0 15px rgba(255, 140, 0, 0.3);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        /* Media query para apilar en pantallas pequeñas */
+        @media (max-width: 800px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-nav">
+            <div class="logo">
+                <h1>Juan Manuel Colorado</h1>
+                <p>Análisis y Desarrollo de Software - SENA</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#projects">Proyectos</a></li>
+                <li><a href="about.html">Sobre Mí</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="contact-container">
+        <div class="contact-header">
+            <h2>Establecer Conexión</h2>
+            <p>Iniciando protocolo de comunicación segura. Elige un canal o envía una transmisión directa.</p>
+        </div>
+
+        <div class="contact-grid">
+            
+            <div class="contact-channels">
+                <a href="mailto:juanm_coloradod@soy.sena.edu.co" class="channel-card">
+                    <div class="channel-icon"></div>
+                    <h3>Email Directo</h3>
+                    <p>El canal más rápido para una respuesta.</p>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/juan-manuel-colorado-duque" target="_blank" class="channel-card">
+                    <div class="channel-icon"></div>
+                    <h3>Red Profesional</h3>
+                    <p>Conectemos en LinkedIn.</p>
+                </a>
+                
+                <a href="https://github.com/nullv1x" target="_blank" class="channel-card">
+                    <div class="channel-icon"></div>
+                    <h3>Colaboración</h3>
+                    <p>Explora mi código en GitHub.</p>
+                </a>
+            </div>
+
+            <div class="contact-form-container">
+                <h3 style="color: white; text-align: center; margin-bottom: 2rem;">Enviar Transmisión Directa</h3>
+                
+                <form action="https://formspree.io/f/xkgveqoe" method="POST">
+                    <div class="form-group">
+                        <label for="name">Tu Indicativo (Nombre)</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Tu Frecuencia (Email)</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje Encriptado (Tu Mensaje)</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Transmitir Mensaje</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="main-footer" style="margin-top: 4rem;">
+        <p>&copy; 2025 Juan Manuel Colorado - SENA ADSO</p>
+        <div class="social-links">
+            <a href="https://github.com/nullv1x" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/juan-manuel-colorado-duque" target="_blank">LinkedIn</a>
+        </div>
+    </footer>
+</body>
+</html>
