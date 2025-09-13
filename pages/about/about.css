@@ -1,0 +1,98 @@
+/* Estilos para la terminal */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Courier New', Courier, monospace;
+    /* Hereda el fondo de global-styles.css pero lo podemos sobreescribir si queremos */
+}
+
+.terminal-window {
+    width: 90%;
+    max-width: 800px;
+    height: 500px;
+    background: rgba(20, 20, 30, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-header {
+    background: #333;
+    padding: 8px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.terminal-body {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    color: #E0E0E0;
+    font-size: 14px;
+}
+
+.terminal-line {
+    line-height: 1.5;
+}
+
+.prompt {
+    color: #00FFC2; /* Color cian para el prompt */
+}
+
+.user-input {
+    color: #FFF;
+}
+
+#input-line {
+    display: flex;
+    padding: 0 15px 15px; /* Padding para la línea de input */
+}
+
+#command-input {
+    background: transparent;
+    border: none;
+    color: #FFF;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    flex-grow: 1;
+}
+#command-input:focus {
+    outline: none;
+}
+
+.cursor {
+    width: 8px;
+    height: 16px;
+    background: #FFF;
+    display: inline-block;
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% {
+        background: transparent;
+    }
+}
+
+/* Clases para dar formato al texto de salida */
+.output-command { color: #00FFC2; }
+.output-error { color: #ff5f56; }
+.output-link { color: #ffbd2e; text-decoration: underline; }
+.output-title { color: var(--sena-orange); font-weight: bold; }
