@@ -1,12 +1,15 @@
 # Portafolio de Desarrollo de Software | Juan Manuel Colorado
 
-![Encabezado del Portafolio](https://prnt.sc/ZbFvrj6JVRvz) ## ► Descripción General
+![Encabezado del Portafolio](https://imgur.com/a/xpX2Ct5)
+![Contenido Proyectos](https://imgur.com/a/nwseQM7)
+
+## ► Descripción General
 
 Este repositorio contiene el código fuente de mi portafolio personal como aprendiz de **Análisis y Desarrollo de Software (ADSO)** en el SENA. Este no es solo un sitio web, sino una bitácora interactiva de mi viaje de aprendizaje, documentando cada proyecto, experimento y habilidad adquirida.
 
 El portafolio está diseñado con una estética futurista y de "glassmorphism", e incluye secciones interactivas como una **terminal de comandos funcional** para una experiencia de usuario única y memorable.
 
-**Visita el portafolio en vivo:** [**tu-usuario.github.io/sena-portfolio/**](https://tu-usuario.github.io/sena-portfolio/) ---
+**Visita el portafolio en vivo:** [**tu-usuario.github.io/sena-portfolio/**](https://null_v1x.github.io/sena-portfolio/) 
 
 ##  - Características Principales
 
@@ -20,7 +23,7 @@ El portafolio está diseñado con una estética futurista y de "glassmorphism", 
 
 ---
 
-## 🛠️ Stack Tecnológico
+##  Stack Tecnológico
 
 Este proyecto fue construido utilizando tecnologías web fundamentales, enfocándome en un rendimiento óptimo y una experiencia de usuario fluida sin depender de frameworks pesados.
 
@@ -30,13 +33,13 @@ Este proyecto fue construido utilizando tecnologías web fundamentales, enfocán
 
 ---
 
-## 🚀 Cómo Empezar
+##  Cómo Empezar
 
 Si deseas explorar el código o ejecutar este proyecto en tu máquina local, solo necesitas un navegador web.
 
 1.  **Clona el repositorio:**
     ```bash
-    git clone [https://github.com/nullv1x/sena-portfolio.git](https://github.com/nullv1x/sena-portfolio.git)
+    git clone https://github.com/nullv1x/sena-portfolio.git
     ```
 
 2.  **Navega al directorio del proyecto:**
@@ -49,7 +52,7 @@ Si deseas explorar el código o ejecutar este proyecto en tu máquina local, sol
 
 ---
 
-## 🔮 Futuras Mejoras
+##  Futuras Mejoras
 
 Este portafolio es un proyecto en constante evolución. Algunas de las características que planeo agregar son:
 
@@ -60,7 +63,7 @@ Este portafolio es un proyecto en constante evolución. Algunas de las caracter�
 
 ---
 
-## 📬 Contacto
+##  Contacto
 
 Si tienes alguna pregunta, sugerencia o simplemente quieres conectar, no dudes en hacerlo.
 
