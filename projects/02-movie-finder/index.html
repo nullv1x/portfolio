@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>MovieFinder</h1>
+            <h1 id="home-button" style="cursor: pointer;">MovieFinder</h1>
             <p>Explora el universo del cine</p>
             <div class="search-container">
                 <input type="text" id="searchInput" placeholder="Buscar una película...">
@@ -21,8 +21,11 @@
         
         <main id="results-grid" class="results-grid"></main>
         
-        <div id="loader" class="loader"></div>
+        <div id="loader" class="loader" style="display: none;"></div>
 
+        <div class="pagination">
+            <button id="load-more" style="display: none;">Cargar Más</button>
+        </div>
     </div>
 
     <div id="movie-modal" class="modal-overlay" style="display: none;">
@@ -32,6 +35,12 @@
                 </div>
         </div>
     </div>
+
+    <footer class="main-footer">
+        <p>Desarrollado por Juan Manuel Colorado</p>
+        <p>Este producto utiliza la API de TMDB pero no está respaldado ni certificado por TMDB.</p>
+        <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-59e86f794d18119ae91ce6d4d02e2fa2194638927918f668582d92d4c062a84a.svg" alt="TMDB Logo" class="tmdb-logo">
+    </footer>
 
     <script src="app.js"></script>
 </body>
