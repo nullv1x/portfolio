@@ -171,9 +171,32 @@
                 'clear': () => {
                     terminalBody.innerHTML = '';
                     return '';
-                }
-            };
+                },
+                // ========= INICIO DE EASTER EGGS =========
+                'sudo': `
+                    <span class="output-error">ERROR:</span> Permiso denegado. Esta no es la terminal que estás buscando.
+                `,
+                'matrix': () => {
+                    typeText('Iniciando secuencia... Adiós, Morfeo.', () => {
+                        window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'; // Un clásico ;)
+                    });
+                    return '';
+                },
+                'cat': `
+<pre>
+/\\_/\\
+( o.o )
+> ^ <
+</pre>
+                `,
+                'date': `
+                    <span class="output-title">Fecha del sistema:</span><br>
+                    ${new Date().toUTCString()}
+                `
+                // ========= FIN DE EASTER EGGS =========
+            }; // No olvides la coma si añades más comandos después
 
+            // Función para escribir texto con efecto de máquina de escribir
             const typeText = (text, callback) => {
                 const line = document.createElement('div');
                 line.classList.add('terminal-line');
