@@ -1,7 +1,7 @@
 # Portafolio de Desarrollo de Software | Juan Manuel Colorado
 
-![Encabezado del Portafolio](https://imgur.com/a/xpX2Ct5)
-![Contenido Proyectos](https://imgur.com/a/nwseQM7)
+![Encabezado del Portafolio](https://github.com/nullv1x/sena-portfolio/blob/main/assets/images/js-fundamentals-exercises.png)
+![Contenido Proyectos](https://github.com/nullv1x/sena-portfolio/blob/main/assets/images/js-fundamentals-home.png)
 
 ## ► Descripción General
 
