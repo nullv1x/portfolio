@@ -39,6 +39,46 @@
       "tags": ["math", "ejercicios", "beginner", "fundamentos"],
       "created_date": "2024-09-12",
       "updated_date": "2024-09-12"
+    },
+    {
+      "id": "02",
+      "slug": "javascript-fundamentals",
+      "title": "Fundamentos de JavaScript",
+      "subtitle": "20 Ejercicios con Math Object",
+      "description": "Ejercicios prácticos para dominar el objeto Math de JavaScript, incluyendo operaciones matemáticas, números aleatorios y redondeo.",
+      "category": "JavaScript",
+      "subcategory": "Fundamentos",
+      "trimester": 3,
+      "semester": "2025-2",
+      "status": "completed",
+      "difficulty": "beginner",
+      "duration": "2 days",
+      "technologies": ["JavaScript", "HTML5", "CSS3", "DOM"],
+      "features": [
+        "20 ejercicios interactivos",
+        "UI responsive con CSS Grid",
+        "Resultados en tiempo real",
+        "Código bien documentado"
+      ],
+      "learning_objectives": [
+        "Dominar el objeto Math de JavaScript",
+        "Manipulación del DOM",
+        "Funciones JavaScript",
+        "Responsive Design"
+      ],
+      "path": "/projects/01-javascript-fundamentals/",
+      "demo_url": "projects/01-javascript-fundamentals/index.html",
+      "repo_url": "https://github.com/nullv1x/sena-portfolio.git",
+      "screenshots": [
+        "assets/images/projects/js-fundamentals-home.png",
+        "assets/images/projects/js-fundamentals-exercises.png"
+      ],
+      "instructor": "Edwar Velazquez",
+      "deliverable_date": "2024-09-15",
+      "grade": null,
+      "tags": ["math", "ejercicios", "beginner", "fundamentos"],
+      "created_date": "2024-09-12",
+      "updated_date": "2024-09-12"
     }
   ],
   "categories": [
