@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Portafolio SENA</title>
+    <link rel="stylesheet" href="../../global-styles.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="icon" href="../../assets/icons/favicon.ico">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-nav">
+            <div class="logo">
+                <h1>Juan Manuel Colorado</h1>
+                <p>Análisis y Desarrollo de Software - SENA</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Proyectos</a></li>
+                <li><a href="../laboratory/laboratory.html">Laboratorio</a></li>
+                <li><a href="../about/about.html">Sobre Mí</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="contact-container">
+        <div class="contact-header">
+            <h2>Establecer Conexión</h2>
+            <p>Iniciando protocolo de comunicación segura. Elige un canal o envía una transmisión directa.</p>
+        </div>
+
+        <div class="contact-grid">
+            
+            <div class="contact-channels">
+                <a href="mailto:juan.colorado@misena.edu.co" class="channel-card">
+                    <div class="channel-icon">📧</div>
+                    <h3>Email Directo</h3>
+                    <p>El canal más rápido para una respuesta.</p>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/juan-manuel-colorado-duque" target="_blank" class="channel-card">
+                    <div class="channel-icon">🔗</div>
+                    <h3>Red Profesional</h3>
+                    <p>Conectemos en LinkedIn.</p>
+                </a>
+                
+                <a href="https://github.com/nullv1x" target="_blank" class="channel-card">
+                    <div class="channel-icon">💻</div>
+                    <h3>Colaboración</h3>
+                    <p>Explora mi código en GitHub.</p>
+                </a>
+            </div>
+
+            <div class="contact-form-container">
+                <h3 style="color: white; text-align: center; margin-bottom: 2rem;">Enviar Transmisión Directa</h3>
+                
+                <form action="https://formspree.io/f/xkgveqoe" method="POST">
+                    <div class="form-group">
+                        <label for="name">Tu Indicativo (Nombre)</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Tu Frecuencia (Email)</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje Encriptado (Tu Mensaje)</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Transmitir Mensaje</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="main-footer" style="margin-top: 4rem;">
+        <p>&copy; 2025 Juan Manuel Colorado - SENA ADSO</p>
+        <div class="social-links">
+            <a href="https://github.com/nullv1x" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/juan-manuel-colorado-duque" target="_blank">LinkedIn</a>
+        </div>
+    </footer>
+    
+    <script src="contact.js"></script>
+</body>
+</html>
