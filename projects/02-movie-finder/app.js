@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalBody = document.getElementById('modal-body');
     const closeModalBtn = document.querySelector('.close-modal');
     const homeButton = document.getElementById('home-button');
+    const loadMoreButton = document.getElementById('load-more');
 
     // Variables de estado para paginación
     let currentPage = 1;
@@ -65,16 +66,23 @@ document.addEventListener('DOMContentLoaded', () => {
         currentEndpoint = endpoint;
         currentPage = page;
         
-        const endpointWithPage = `${endpoint}${endpoint.includes('?') ? '&' : '?'}page=${page}`;
-        const data = await fetchFromAPI(endpointWithPage);
-        
         if (page === 1) {
             clearResults();
         }
 
+        const endpointWithPage = `${endpoint}${endpoint.includes('?') ? '&' : '?'}page=${page}`;
+        const data = await fetchFromAPI(endpointWithPage);
+        
         if (data && data.results) {
             displayMovies(data.results);
             totalPages = data.total_pages;
+
+            // Mostrar u ocultar el botón "Cargar Más"
+            if (currentPage < totalPages) {
+                loadMoreButton.style.display = 'block';
+            } else {
+                loadMoreButton.style.display = 'none';
+            }
         }
     }
 
@@ -109,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showLoader();
         modalBody.innerHTML = '';
         
+        // CORRECCIÓN: Se añaden verificaciones para evitar errores si alguna petición falla
         const [details, credits, videos, providers] = await Promise.all([
             fetchFromAPI(`movie/${movieId}`),
             fetchFromAPI(`movie/${movieId}/credits`),
@@ -117,11 +126,15 @@ document.addEventListener('DOMContentLoaded', () => {
         ]);
 
         hideLoader();
-        if (!details) return;
+        if (!details) {
+            modalBody.innerHTML = '<p>No se pudieron cargar los detalles de la película.</p>';
+            modal.classList.add('active');
+            return;
+        }
 
-        const trailer = videos.results.find(v => v.type === 'Trailer' && v.site === 'YouTube');
-        const watchProviders = providers.results['ES']?.flatrate || [];
-        const cast = credits.cast.slice(0, 10); // Limitar a los 10 actores principales
+        const trailer = videos?.results?.find(v => v.type === 'Trailer' && v.site === 'YouTube');
+        const watchProviders = providers?.results?.['ES']?.flatrate || [];
+        const cast = credits?.cast?.slice(0, 10) || [];
 
         modalBody.innerHTML = `
             <div class="modal-header">
@@ -130,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h2 class="modal-title">${details.title}</h2>
                     <div class="modal-details">
                         <p><span class="rating">⭐ ${details.vote_average.toFixed(1)}/10</span></p>
-                        <p>${details.release_date} | ${details.runtime} min</p>
+                        <p>${details.release_date} | ${details.runtime || 'N/A'} min</p>
                         <p><strong>Géneros:</strong> ${details.genres.map(g => g.name).join(', ')}</p>
                     </div>
                     <h3>Sinopsis</h3>
@@ -164,8 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     `).join('')}
                 </div>
-            </div>
-            ` : ''}
+            </div>` : ''}
         `;
         
         modal.classList.add('active');
@@ -213,14 +225,11 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.addEventListener('click', e => {
         if (e.target === modal) modal.classList.remove('active');
     });
-
-    // Scroll Infinito
-    window.addEventListener('scroll', () => {
-        if (isLoading) return;
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500) {
-            if (currentPage < totalPages) {
-                getMovies(currentEndpoint, currentPage + 1);
-            }
+    
+    // CORRECCIÓN: Evento para el botón de paginación
+    loadMoreButton.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+            getMovies(currentEndpoint, currentPage + 1);
         }
     });
 
