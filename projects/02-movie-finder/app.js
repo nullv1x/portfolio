@@ -24,6 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const recommendedMovieDiv = document.getElementById('recommended-movie');
     const viewRecommendedDetails = document.getElementById('view-recommended-details');
 
+    // Nuevos elementos para favoritos e historial
+    const favoritesButton = document.getElementById('favorites-button');
+    const historyButton = document.getElementById('history-button');
+    const sectionTitle = document.getElementById('section-title');
+
     // Variables de estado
     let currentPage = 1;
     let totalPages = 1;
@@ -32,6 +37,90 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeGenre = null;
     let allGenres = [];
     let currentRecommendedMovie = null;
+    let currentSection = 'popular'; // 'popular', 'favorites', 'history'
+
+    // =========================================================================
+    // SISTEMA DE FAVORITOS E HISTORIAL
+    // =========================================================================
+    
+    // Funciones para manejar localStorage
+    function getFavorites() {
+        try {
+            return JSON.parse(localStorage.getItem('movieFavorites')) || [];
+        } catch (error) {
+            console.error('Error al obtener favoritos:', error);
+            return [];
+        }
+    }
+
+    function getWatchedMovies() {
+        try {
+            return JSON.parse(localStorage.getItem('watchedMovies')) || [];
+        } catch (error) {
+            console.error('Error al obtener historial:', error);
+            return [];
+        }
+    }
+
+    function addToFavorites(movie) {
+        const favorites = getFavorites();
+        const isAlreadyFavorite = favorites.some(fav => fav.id === movie.id);
+        
+        if (!isAlreadyFavorite) {
+            favorites.push({
+                id: movie.id,
+                title: movie.title,
+                poster_path: movie.poster_path,
+                release_date: movie.release_date,
+                vote_average: movie.vote_average,
+                overview: movie.overview,
+                dateAdded: new Date().toISOString()
+            });
+            localStorage.setItem('movieFavorites', JSON.stringify(favorites));
+            return true;
+        }
+        return false;
+    }
+
+    function removeFromFavorites(movieId) {
+        const favorites = getFavorites();
+        const filteredFavorites = favorites.filter(fav => fav.id !== movieId);
+        localStorage.setItem('movieFavorites', JSON.stringify(filteredFavorites));
+    }
+
+    function addToWatched(movie) {
+        const watchedMovies = getWatchedMovies();
+        const isAlreadyWatched = watchedMovies.some(watched => watched.id === movie.id);
+        
+        if (!isAlreadyWatched) {
+            watchedMovies.unshift({
+                id: movie.id,
+                title: movie.title,
+                poster_path: movie.poster_path,
+                release_date: movie.release_date,
+                vote_average: movie.vote_average,
+                overview: movie.overview,
+                dateWatched: new Date().toISOString()
+            });
+            localStorage.setItem('watchedMovies', JSON.stringify(watchedMovies));
+            return true;
+        }
+        return false;
+    }
+
+    function removeFromWatched(movieId) {
+        const watchedMovies = getWatchedMovies();
+        const filteredWatched = watchedMovies.filter(watched => watched.id !== movieId);
+        localStorage.setItem('watchedMovies', JSON.stringify(filteredWatched));
+    }
+
+    function isFavorite(movieId) {
+        return getFavorites().some(fav => fav.id === movieId);
+    }
+
+    function isWatched(movieId) {
+        return getWatchedMovies().some(watched => watched.id === movieId);
+    }
 
     // =========================================================================
     // FUNCIONES DE LA API
@@ -112,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================================================
     async function getRandomMovie() {
         const selectedGenre = recommendationGenre.value;
-        const randomPage = Math.floor(Math.random() * 20) + 1; // Páginas 1-20 para mejor variedad
+        const randomPage = Math.floor(Math.random() * 20) + 1;
         
         let endpoint = `discover/movie?sort_by=popularity.desc&page=${randomPage}`;
         if (selectedGenre) {
@@ -156,9 +245,19 @@ document.addEventListener('DOMContentLoaded', () => {
             movieCard.dataset.movieId = movie.id;
 
             const posterPath = movie.poster_path ? `${imageBaseUrl}${movie.poster_path}` : 'https://via.placeholder.com/500x750?text=No+Imagen';
+            
+            // Indicadores de estado
+            const favoriteIcon = isFavorite(movie.id) ? '❤️' : '';
+            const watchedIcon = isWatched(movie.id) ? '✓' : '';
+            
+            let statusIcons = '';
+            if (favoriteIcon || watchedIcon) {
+                statusIcons = `<div class="movie-status">${favoriteIcon} ${watchedIcon}</div>`;
+            }
 
             movieCard.innerHTML = `
                 <img src="${posterPath}" alt="Póster de ${movie.title}">
+                ${statusIcons}
                 <div class="movie-info">
                     <h3>${movie.title}</h3>
                     <p>Lanzamiento: ${movie.release_date || 'N/A'}</p>
@@ -166,6 +265,36 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             resultsGrid.appendChild(movieCard);
         });
+    }
+
+    function displayFavorites() {
+        currentSection = 'favorites';
+        sectionTitle.textContent = '❤️ Mis Películas Favoritas';
+        clearResults();
+        loadMoreButton.style.display = 'none';
+        
+        const favorites = getFavorites();
+        if (favorites.length === 0) {
+            resultsGrid.innerHTML = '<p>No tienes películas favoritas aún. ¡Agrega algunas!</p>';
+            return;
+        }
+        
+        displayMovies(favorites);
+    }
+
+    function displayHistory() {
+        currentSection = 'history';
+        sectionTitle.textContent = '📺 Películas Vistas';
+        clearResults();
+        loadMoreButton.style.display = 'none';
+        
+        const watchedMovies = getWatchedMovies();
+        if (watchedMovies.length === 0) {
+            resultsGrid.innerHTML = '<p>No has marcado ninguna película como vista. ¡Empieza a llevar tu registro!</p>';
+            return;
+        }
+        
+        displayMovies(watchedMovies);
     }
 
     async function displayMovieDetails(movieId) {
@@ -198,11 +327,26 @@ document.addEventListener('DOMContentLoaded', () => {
         const similarMovies = similar?.results?.slice(0, 6) || [];
         const movieReviews = reviews?.results?.slice(0, 3) || [];
 
+        // Estados de favorito y visto
+        const isFav = isFavorite(movieId);
+        const isWat = isWatched(movieId);
+
         modalBody.innerHTML = `
             <div class="modal-header">
                 <img src="${details.poster_path ? imageBaseUrl + details.poster_path : 'https://via.placeholder.com/500x750?text=No+Imagen'}" alt="${details.title}" class="modal-poster">
                 <div class="modal-info">
                     <h2 class="modal-title">${details.title}</h2>
+                    
+                    <!-- BOTONES DE ACCIÓN -->
+                    <div class="movie-actions">
+                        <button id="favorite-btn" class="action-btn ${isFav ? 'active' : ''}" data-movie-id="${movieId}">
+                            ${isFav ? '❤️ En Favoritos' : '🤍 Agregar a Favoritos'}
+                        </button>
+                        <button id="watched-btn" class="action-btn ${isWat ? 'active' : ''}" data-movie-id="${movieId}">
+                            ${isWat ? '✅ Ya Vista' : '➕ Marcar como Vista'}
+                        </button>
+                    </div>
+                    
                     <div class="modal-details">
                         <p><span class="rating">⭐ ${details.vote_average.toFixed(1)}/10</span> (${details.vote_count} votos)</p>
                         <p>${details.release_date} | ${details.runtime || 'N/A'} min</p>
@@ -211,7 +355,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         ${details.budget > 0 ? `<p><strong>Presupuesto:</strong> $${details.budget.toLocaleString()}</p>` : ''}
                     </div>
                     
-                    <!-- ESTADÍSTICAS MEJORADAS -->
                     <div class="modal-stats">
                         <div class="stat-item">
                             <span class="stat-value">${details.vote_average.toFixed(1)}</span>
@@ -317,12 +460,62 @@ document.addEventListener('DOMContentLoaded', () => {
                 displayMovieDetails(element.dataset.movieId);
             });
         });
+
+        // Event listeners para botones de favorito y visto
+        const favoriteBtn = modalBody.querySelector('#favorite-btn');
+        const watchedBtn = modalBody.querySelector('#watched-btn');
+
+        favoriteBtn.addEventListener('click', () => {
+            const movieId = parseInt(favoriteBtn.dataset.movieId);
+            const isFav = isFavorite(movieId);
+            
+            if (isFav) {
+                removeFromFavorites(movieId);
+                favoriteBtn.innerHTML = '🤍 Agregar a Favoritos';
+                favoriteBtn.classList.remove('active');
+            } else {
+                const success = addToFavorites(details);
+                if (success) {
+                    favoriteBtn.innerHTML = '❤️ En Favoritos';
+                    favoriteBtn.classList.add('active');
+                }
+            }
+            
+            // Actualizar vista si estamos en favoritos
+            if (currentSection === 'favorites') {
+                setTimeout(() => displayFavorites(), 500);
+            }
+        });
+
+        watchedBtn.addEventListener('click', () => {
+            const movieId = parseInt(watchedBtn.dataset.movieId);
+            const isWat = isWatched(movieId);
+            
+            if (isWat) {
+                removeFromWatched(movieId);
+                watchedBtn.innerHTML = '➕ Marcar como Vista';
+                watchedBtn.classList.remove('active');
+            } else {
+                const success = addToWatched(details);
+                if (success) {
+                    watchedBtn.innerHTML = '✅ Ya Vista';
+                    watchedBtn.classList.add('active');
+                }
+            }
+            
+            // Actualizar vista si estamos en historial
+            if (currentSection === 'history') {
+                setTimeout(() => displayHistory(), 500);
+            }
+        });
     }
     
     // =========================================================================
     // MANEJO DE EVENTOS
     // =========================================================================
     homeButton.addEventListener('click', () => {
+        currentSection = 'popular';
+        sectionTitle.textContent = '🎬 Películas Populares';
         if (activeGenre) activeGenre.classList.remove('active');
         activeGenre = null;
         searchInput.value = '';
@@ -332,6 +525,8 @@ document.addEventListener('DOMContentLoaded', () => {
     searchButton.addEventListener('click', () => {
         const query = searchInput.value.trim();
         if (query) {
+            currentSection = 'search';
+            sectionTitle.textContent = `🔍 Resultados para: "${query}"`;
             getMovies(`search/movie?query=${encodeURIComponent(query)}`, 1);
             if (activeGenre) activeGenre.classList.remove('active');
             activeGenre = null;
@@ -342,10 +537,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     genreNav.addEventListener('click', e => {
         if (e.target.classList.contains('genre-btn')) {
+            currentSection = 'genre';
             if (activeGenre) activeGenre.classList.remove('active');
             activeGenre = e.target;
             activeGenre.classList.add('active');
             const genreId = e.target.dataset.genreId;
+            const genreName = e.target.textContent;
+            sectionTitle.textContent = `🎭 Películas de ${genreName}`;
             searchInput.value = '';
             getMovies(`discover/movie?with_genres=${genreId}`, 1);
         }
@@ -369,6 +567,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Event listeners para favoritos e historial
+    favoritesButton.addEventListener('click', displayFavorites);
+    historyButton.addEventListener('click', displayHistory);
+
     // Event listeners para recomendaciones
     recommendButton.addEventListener('click', getRandomMovie);
     
@@ -384,6 +586,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const clearResults = () => resultsGrid.innerHTML = '';
 
     function init() {
+        sectionTitle.textContent = '🎬 Películas Populares';
         loadGenres();
         getMovies('movie/popular', 1);
     }
