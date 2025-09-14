@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function displayFavorites() {
         currentSection = 'favorites';
-        sectionTitle.textContent = '❤️ Mis Películas Favoritas';
+        sectionTitle.textContent = 'Mis Películas Favoritas';
         clearResults();
         loadMoreButton.style.display = 'none';
         
@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function displayHistory() {
         currentSection = 'history';
-        sectionTitle.textContent = '📺 Películas Vistas';
+        sectionTitle.textContent = 'Películas Vistas';
         clearResults();
         loadMoreButton.style.display = 'none';
         
@@ -340,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <!-- BOTONES DE ACCIÓN -->
                     <div class="movie-actions">
                         <button id="favorite-btn" class="action-btn ${isFav ? 'active' : ''}" data-movie-id="${movieId}">
-                            ${isFav ? '❤️ En Favoritos' : '🤍 Agregar a Favoritos'}
+                            ${isFav ? 'Agregado a Favoritos ❤️' : '❤️ Agregar a Favoritos'}
                         </button>
                         <button id="watched-btn" class="action-btn ${isWat ? 'active' : ''}" data-movie-id="${movieId}">
                             ${isWat ? '✅ Ya Vista' : '➕ Marcar como Vista'}
@@ -382,13 +382,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             ${trailer ? `
             <div class="modal-section modal-trailer">
-                <h3>🎬 Tráiler Oficial</h3>
+                <h3>Tráiler Oficial</h3>
                 <iframe src="https://www.youtube.com/embed/${trailer.key}" frameborder="0" allowfullscreen></iframe>
             </div>` : ''}
 
             ${watchProviders.length > 0 ? `
             <div class="modal-section modal-providers">
-                <h3>📺 Disponible en Streaming (España):</h3>
+                <h3>Disponible en Streaming (España):</h3>
                 <div class="provider-list">
                     ${watchProviders.map(p => `<img src="${imageBaseUrl}${p.logo_path}" alt="${p.provider_name}" class="provider-logo" title="${p.provider_name}">`).join('')}
                 </div>
@@ -396,7 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             ${cast.length > 0 ? `
             <div class="modal-section">
-                <h3>🎭 Reparto Principal</h3>
+                <h3>Reparto Principal</h3>
                 <div class="cast-grid">
                     ${cast.map(actor => `
                         <div class="cast-card">
@@ -410,7 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             ${details.production_companies && details.production_companies.length > 0 ? `
             <div class="modal-section">
-                <h3>🏢 Compañías Productoras</h3>
+                <h3>Compañías Productoras</h3>
                 <div class="production-companies">
                     ${details.production_companies.filter(company => company.logo_path).map(company => `
                         <img src="${imageBaseUrl}${company.logo_path}" alt="${company.name}" class="company-logo" title="${company.name}">
@@ -420,7 +420,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             ${movieKeywords.length > 0 ? `
             <div class="modal-section">
-                <h3>🏷️ Palabras Clave</h3>
+                <h3>Palabras Clave</h3>
                 <div class="keywords-list">
                     ${movieKeywords.map(keyword => `<span class="keyword-tag">${keyword.name}</span>`).join('')}
                 </div>
@@ -428,7 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             ${movieReviews.length > 0 ? `
             <div class="modal-section">
-                <h3>💬 Reseñas de Usuarios</h3>
+                <h3>Reseñas de Usuarios</h3>
                 ${movieReviews.map(review => `
                     <div class="review-card">
                         <p>${review.content.length > 300 ? review.content.substring(0, 300) + '...' : review.content}</p>
@@ -439,7 +439,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             ${similarMovies.length > 0 ? `
             <div class="modal-section">
-                <h3>🎯 Películas Similares</h3>
+                <h3>Películas Similares</h3>
                 <div class="similar-movies">
                     ${similarMovies.map(movie => `
                         <div class="similar-movie" data-movie-id="${movie.id}">
@@ -471,12 +471,12 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (isFav) {
                 removeFromFavorites(movieId);
-                favoriteBtn.innerHTML = '🤍 Agregar a Favoritos';
+                favoriteBtn.innerHTML = 'Agregar a Favoritos';
                 favoriteBtn.classList.remove('active');
             } else {
                 const success = addToFavorites(details);
                 if (success) {
-                    favoriteBtn.innerHTML = '❤️ En Favoritos';
+                    favoriteBtn.innerHTML = 'En Favoritos ❤️';
                     favoriteBtn.classList.add('active');
                 }
             }
@@ -498,7 +498,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 const success = addToWatched(details);
                 if (success) {
-                    watchedBtn.innerHTML = '✅ Ya Vista';
+                    watchedBtn.innerHTML = '✅ Vista';
                     watchedBtn.classList.add('active');
                 }
             }
@@ -515,7 +515,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================================================
     homeButton.addEventListener('click', () => {
         currentSection = 'popular';
-        sectionTitle.textContent = '🎬 Películas Populares';
+        sectionTitle.textContent = 'Películas Populares';
         if (activeGenre) activeGenre.classList.remove('active');
         activeGenre = null;
         searchInput.value = '';
@@ -526,7 +526,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const query = searchInput.value.trim();
         if (query) {
             currentSection = 'search';
-            sectionTitle.textContent = `🔍 Resultados para: "${query}"`;
+            sectionTitle.textContent = `Resultados para: "${query}"`;
             getMovies(`search/movie?query=${encodeURIComponent(query)}`, 1);
             if (activeGenre) activeGenre.classList.remove('active');
             activeGenre = null;
@@ -543,7 +543,7 @@ document.addEventListener('DOMContentLoaded', () => {
             activeGenre.classList.add('active');
             const genreId = e.target.dataset.genreId;
             const genreName = e.target.textContent;
-            sectionTitle.textContent = `🎭 Películas de ${genreName}`;
+            sectionTitle.textContent = `Películas de ${genreName}`;
             searchInput.value = '';
             getMovies(`discover/movie?with_genres=${genreId}`, 1);
         }
@@ -586,7 +586,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const clearResults = () => resultsGrid.innerHTML = '';
 
     function init() {
-        sectionTitle.textContent = '🎬 Películas Populares';
+        sectionTitle.textContent = 'Películas Populares';
         loadGenres();
         getMovies('movie/popular', 1);
     }

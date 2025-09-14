@@ -59,7 +59,7 @@ header h1:hover { transform: scale(1.05); }
 #section-title {
     font-size: 2rem;
     color: var(--sena-orange);
-    text-shadow: 0 0 10px rgba(255, 103, 25, 0.3);
+    text-shadow: 0 0 10px rgb(157, 100, 80);
 }
 
 .search-container { margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem; }
@@ -382,7 +382,7 @@ header h1:hover { transform: scale(1.05); }
     background: var(--card-color);
     color: var(--text-light);
     border: 2px solid var(--sena-orange);
-    border-radius: 10px;
+    border-radius: 25px;
     padding: 0.8rem 1.2rem;
     font-size: 1rem;
     cursor: pointer;
@@ -433,6 +433,7 @@ header h1:hover { transform: scale(1.05); }
 .recommended-movie h3 {
     color: var(--sena-orange);
     margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(255, 103, 25, 0.3);
 }
 
 .recommended-details {

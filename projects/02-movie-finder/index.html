@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscador de Películas Interactivo</title>
+    <title>MovieFinder</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,10 +15,10 @@
             <!-- NUEVA NAVEGACIÓN PRINCIPAL -->
             <div class="main-navigation">
                 <button id="favorites-button" class="nav-btn">
-                    ❤️ Mis Favoritos
+                     Mis Favoritos ❤️
                 </button>
                 <button id="history-button" class="nav-btn">
-                    📺 Películas Vistas
+                    Películas Vistas 📺
                 </button>
             </div>
             
@@ -29,14 +29,10 @@
             <nav id="genre-nav" class="genre-nav"></nav>
         </header>
         
-        <!-- TÍTULO DE SECCIÓN -->
-        <section class="section-header">
-            <h2 id="section-title">🎬 Películas Populares</h2>
-        </section>
         
         <!-- SECCIÓN DE RECOMENDACIONES -->
         <section class="recommendation-section">
-            <h2 class="recommendation-title">🎬 ¿No sabes qué ver?</h2>
+            <h2 class="recommendation-title">¿No sabes qué ver?</h2>
             <p>¡Te recomendamos una película perfecta para ti!</p>
             
             <div class="genre-selector">
@@ -49,7 +45,7 @@
             </div>
             
             <div id="recommended-movie" class="recommended-movie">
-                <h3>🌟 Tu película recomendada:</h3>
+                <h3>Tu película recomendada:</h3>
                 <div class="recommended-details">
                     <img id="recommended-poster" class="recommended-poster" src="" alt="">
                     <div class="recommended-info">
@@ -60,6 +56,11 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- TÍTULO DE SECCIÓN -->
+        <section class="section-header">
+            <h2 id="section-title">Películas Populares</h2>
         </section>
         
         <main id="results-grid" class="results-grid"></main>
@@ -81,8 +82,8 @@
 
     <footer class="main-footer">
         <p>Desarrollado por Juan Manuel Colorado</p>
-        <p>Este producto utiliza la API de TMDB pero no está respaldado ni certificado por TMDB.</p>
-        <img src="../assets/images/tmdb-logo.png" alt="TMDB Logo" class="tmdb-logo">
+        <p>Esta página utiliza la API de TMDB pero no está respaldado ni certificado por TMDB.</p>
+        <img src="../../assets/images/tmdb-logo.png" alt="TMDB Logo" class="tmdb-logo">
     </footer>
 
     <script src="app.js"></script>
