@@ -153,3 +153,243 @@ header h1:hover { transform: scale(1.05); }
 #load-more:hover {
     transform: scale(1.05);
 }
+
+/* Agregar estas reglas al final de tu archivo styles.css */
+
+/* CORRECCIÓN PRINCIPAL DEL MODAL */
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    display: flex !important; /* Esta línea es clave para mostrar el modal */
+}
+
+/* ESTILOS MEJORADOS PARA EL MODAL */
+.modal-backdrop {
+    background: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(26,26,26,0.95));
+}
+
+.modal-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.stat-item {
+    background: rgba(255, 103, 25, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(255, 103, 25, 0.3);
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--sena-orange);
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-dark);
+    margin-top: 0.5rem;
+}
+
+.keywords-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.keyword-tag {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    border: 1px solid var(--glass-border);
+}
+
+.production-companies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.company-logo {
+    height: 40px;
+    filter: brightness(0.8);
+}
+
+.similar-movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.similar-movie {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    text-align: center;
+}
+
+.similar-movie:hover {
+    transform: scale(1.05);
+}
+
+.similar-movie img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.similar-movie p {
+    font-size: 0.8rem;
+    color: var(--text-dark);
+}
+
+/* ESTILOS PARA RECOMENDACIONES */
+.recommendation-section {
+    background: linear-gradient(135deg, var(--card-color), rgba(255, 103, 25, 0.05));
+    border: 2px solid var(--sena-orange);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.recommendation-title {
+    font-size: 2rem;
+    color: var(--sena-orange);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(255, 103, 25, 0.3);
+}
+
+.genre-selector {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+}
+
+.genre-selector select {
+    background: var(--card-color);
+    color: var(--text-light);
+    border: 2px solid var(--sena-orange);
+    border-radius: 10px;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.recommend-button {
+    background: linear-gradient(135deg, var(--sena-orange), #ff8c42);
+    color: #1a1a1a;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 103, 25, 0.3);
+}
+
+.recommend-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 103, 25, 0.5);
+}
+
+.recommended-movie {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    display: none;
+}
+
+.recommended-movie.show {
+    display: block;
+    animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.recommended-movie h3 {
+    color: var(--sena-orange);
+    margin-bottom: 1rem;
+}
+
+.recommended-details {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.recommended-poster {
+    width: 150px;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.recommended-info {
+    flex: 1;
+    min-width: 200px;
+}
+
+.view-details-btn {
+    background: transparent;
+    color: var(--sena-orange);
+    border: 2px solid var(--sena-orange);
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.2s ease;
+}
+
+.view-details-btn:hover {
+    background: var(--sena-orange);
+    color: #1a1a1a;
+}
+
+/* Responsive para el modal */
+@media (max-width: 768px) {
+    .modal-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .modal-poster {
+        width: 150px;
+        margin: 0 auto;
+    }
+    
+    .modal-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .similar-movies {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+    
+    .recommended-details {
+        flex-direction: column;
+        text-align: center;
+    }
+}
