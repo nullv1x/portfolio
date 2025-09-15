@@ -28,7 +28,7 @@
       ],
       "path": "/projects/01-javascript-fundamentals/",
       "demo_url": "projects/01-javascript-fundamentals/index.html",
-      "repo_url": "hhttps://nullv1x.github.io/portfolio/projects/01-javascript-fundamentals/index.html",
+      "repo_url": "https://github.com/nullv1x/portfolio",
       "screenshots": [
         "assets/images/projects/js-fundamentals-home.png",
         "assets/images/projects/js-fundamentals-exercises.png"
@@ -66,7 +66,7 @@
       ],
       "path": "/projects/02-movie-finder/",
       "demo_url": "projects/02-movie-finder/index.html",
-      "repo_url": "https://nullv1x.github.io/portfolio/projects/02-movie-finder/index.html",
+      "repo_url": "https://github.com/nullv1x/portfolio",
       "screenshots": [
         "assets/images/projects/movie-finder/movie-finder-home.png",
         "assets/images/projects/movie-finder/movie-finder-results.png"
