@@ -1,5 +1,5 @@
 // main.js
-class PortfolioApp {
+class Portfolio {
     constructor() {
         this.projects = [];
         this.init();
@@ -66,7 +66,7 @@ class PortfolioApp {
                 
                 <div class="project-actions">
                     <a href="${project.demo_url}" class="btn btn-primary">Ver Proyecto</a>
-                    <button class="btn btn-secondary" onclick="portfolioApp.showProjectDetails('${project.id}')">
+                    <button class="btn btn-secondary" onclick="Portfolio.showProjectDetails('${project.id}')">
                         Detalles
                     </button>
                 </div>
@@ -174,8 +174,8 @@ class PortfolioApp {
 
 // Inicializar la aplicación cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
-    // ✨ CAMBIO CLAVE: Asignamos la instancia a window.portfolioApp
-    window.portfolioApp = new PortfolioApp();
+    // ✨ CAMBIO CLAVE: Asignamos la instancia a window.Portfolio
+    window.Portfolio = new Portfolio();
 });
 
 // Cerrar modal
