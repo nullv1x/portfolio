@@ -39,12 +39,12 @@ Si deseas explorar el código o ejecutar este proyecto en tu máquina local, sol
 
 1.  **Clona el repositorio:**
     ```bash
-    git clone https://github.com/nullv1x/sena-portfolio.git
+    git clone https://github.com/nullv1x/portfolio.git
     ```
 
 2.  **Navega al directorio del proyecto:**
     ```bash
-    cd sena-portfolio
+    cd portfolio
     ```
 
 3.  **Abre `index.html` en tu navegador:**
