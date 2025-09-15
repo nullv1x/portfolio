@@ -24,7 +24,7 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 2rem;
-    align-items: start;
+    align-items: center;
 }
 
 .contact-channels {
@@ -47,11 +47,11 @@
 .channel-card:hover {
     transform: translateY(-5px) scale(1.03);
     box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.3);
-    border-color: var(--sena-orange);
+    border-color: var(--text-light);
 }
 .channel-card h3 {
     margin-bottom: 0.5rem;
-    color: var(--sena-orange);
+    color: var(--text-light);
 }
 .channel-card p {
     font-size: 0.9rem;
