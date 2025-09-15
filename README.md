@@ -9,13 +9,13 @@ Este repositorio contiene el código fuente de mi portafolio personal como apren
 
 El portafolio está diseñado con una estética futurista y de "glassmorphism", e incluye secciones interactivas como una **terminal de comandos funcional** para una experiencia de usuario única y memorable.
 
-**Visita el portafolio en vivo:** [**https://nullv1x.github.io/sena-portfolio/**](https://nullv1x.github.io/sena-portfolio/) 
+**Visita el portafolio en vivo:** [**https://nullv1x.github.io/portfolio/**](https://nullv1x.github.io/portfolio/) 
 
 ##  - Características Principales
 
 * **Diseño Moderno y Responsivo:** Interfaz de usuario con efecto "glassmorphism" que se adapta a cualquier dispositivo.
 * **Páginas Interactivas:**
-    * **Página "Sobre Mí" estilo Terminal:** Una simulación de terminal de Linux donde los visitantes pueden usar comandos (`whoami`, `skills`, `socials`) para conocerme.
+    * **Página "Sobre Mí" estilo Terminal:** Una simulación de terminal de Linux donde los visitantes pueden usar comandos (`whoami`, `skills`, `socials`) para conocerme y algunos Easter Eggs.
     * **Página de Contacto Temática:** Una "terminal de comunicaciones" para enviar mensajes directos.
     * **Laboratorio de Código:** Una sección para mostrar experimentos y prototipos pequeños.
 * **Gestión de Proyectos Dinámica:** Los proyectos se cargan desde un archivo `JSON` central, lo que facilita la actualización y el mantenimiento del contenido.
@@ -29,7 +29,7 @@ Este proyecto fue construido utilizando tecnologías web fundamentales, enfocán
 
 * **HTML5:** Para la estructura semántica del contenido.
 * **CSS3:** Para el diseño visual, incluyendo **CSS Grid** y **Flexbox** para el layout, y animaciones para la interactividad.
-* **JavaScript (ES6+):** Para toda la lógica del cliente, la interactividad de la terminal, la carga dinámica de proyectos y las animaciones.
+* **JavaScript (ES6):** Para toda la lógica del cliente, la interactividad de la terminal, la carga dinámica de proyectos y las animaciones.
 
 ---
 
