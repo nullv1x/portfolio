@@ -174,7 +174,7 @@ class Portfolio {
 
 // Inicializar la aplicación cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
-    // ✨ CAMBIO CLAVE: Asignamos la instancia a window.Portfolio
+    //Asignamos la instancia a window.Portfolio
     window.Portfolio = new Portfolio();
 });
 
