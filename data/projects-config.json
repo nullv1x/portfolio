@@ -28,18 +28,16 @@
       ],
       "path": "/projects/01-javascript-fundamentals/",
       "demo_url": "projects/01-javascript-fundamentals/index.html",
-      "repo_url": "https://github.com/nullv1x/sena-portfolio.git",
+      "repo_url": "hhttps://nullv1x.github.io/portfolio/projects/01-javascript-fundamentals/index.html",
       "screenshots": [
         "assets/images/projects/js-fundamentals-home.png",
         "assets/images/projects/js-fundamentals-exercises.png"
       ],
-      "instructor": "Edwar Velazquez",
-      "deliverable_date": "2024-09-15",
-      "grade": null,
       "tags": ["math", "ejercicios", "beginner", "fundamentos"],
-      "created_date": "2024-09-12",
-      "updated_date": "2024-09-12"
+      "created_date": "2025-09-12",
+      "updated_date": "2025-09-12"
     },
+    
     {
       "id": "02",
       "slug": "movie-finder",
@@ -47,38 +45,35 @@
       "subtitle": "Encuentra tus películas favoritas",
       "description": "Una aplicación para buscar y descubrir películas utilizando la API de TMDB.",
       "category": "JavaScript",
-      "subcategory": "Fundamentos",
+      "subcategory": "API REST",
       "trimester": 3,
       "semester": "2025-2",
-      "status": "completed",
+      "status": "in-progress",
       "difficulty": "beginner",
       "duration": "2 months",
       "technologies": ["JavaScript", "HTML5", "CSS3", "DOM", "API REST"],
       "features": [
-        "20 ejercicios interactivos",
-        "UI responsive con CSS Grid",
+        "Busqueda de películas",
+        "Interfaz de usuario intuitiva",
         "Resultados en tiempo real",
         "Código bien documentado"
       ],
       "learning_objectives": [
-        "Dominar el objeto Math de JavaScript",
+        "Consumir datos de una API REST",
         "Manipulación del DOM",
         "Funciones JavaScript",
         "Responsive Design"
       ],
       "path": "/projects/02-movie-finder/",
       "demo_url": "projects/02-movie-finder/index.html",
-      "repo_url": "https://github.com/nullv1x/sena-portfolio.git",
+      "repo_url": "https://nullv1x.github.io/portfolio/projects/02-movie-finder/index.html",
       "screenshots": [
-        "assets/images/projects/movie-finder-home.png",
-        "assets/images/projects/movie-finder-results.png"
+        "assets/images/projects/movie-finder/movie-finder-home.png",
+        "assets/images/projects/movie-finder/movie-finder-results.png"
       ],
-      "instructor": "Edwar Velazquez",
-      "deliverable_date": "2024-09-15",
-      "grade": null,
       "tags": ["math", "ejercicios", "beginner", "fundamentos"],
-      "created_date": "2024-09-12",
-      "updated_date": "2024-09-12"
+      "created_date": "2025-07-12",
+      "updated_date": "2025-09-14"
     }
   ],
   "categories": [
@@ -99,7 +94,7 @@
     }
   ],
   "stats": {
-    "total_projects": 1,
+    "total_projects": 2,
     "completed_projects": 1,
     "current_trimester": 3,
     "start_date": "2025-09-12"
