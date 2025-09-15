@@ -1,11 +1,11 @@
-# Portafolio de Desarrollo de Software | Juan Manuel Colorado
+# Portafolio | Juan Manuel Colorado
 
 ![Encabezado del Portafolio](https://github.com/nullv1x/sena-portfolio/blob/main/assets/images/js-fundamentals-exercises.png)
 ![Contenido Proyectos](https://github.com/nullv1x/sena-portfolio/blob/main/assets/images/js-fundamentals-home.png)
 
 ## ► Descripción General
 
-Este repositorio contiene el código fuente de mi portafolio personal como aprendiz de **Análisis y Desarrollo de Software (ADSO)** en el SENA. Este no es solo un sitio web, sino una bitácora interactiva de mi viaje de aprendizaje, documentando cada proyecto, experimento y habilidad adquirida.
+Este repositorio contiene el código fuente de mi portafolio personal como aprendiz de **Análisis y Desarrollo de Software (ADSO)**. Este no es solo un sitio web, sino una bitácora interactiva de mi viaje de aprendizaje, documentando cada proyecto, experimento y habilidad adquirida.
 
 El portafolio está diseñado con una estética futurista y de "glassmorphism", e incluye secciones interactivas como una **terminal de comandos funcional** para una experiencia de usuario única y memorable.
 
