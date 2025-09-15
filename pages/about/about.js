@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const terminalBody = document.getElementById('terminal-body');
     const commandInput = document.getElementById('command-input');
     const inputLine = document.getElementById('input-line');
-    const cursor = document.querySelector('.cursor');
     let commandHistory = [];
     let historyIndex = -1;
 
@@ -89,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const executeCommand = (cmd) => {
         const commandLine = document.createElement('div');
-        commandLine.innerHTML = `<span class="prompt">user@jmcolorado:~$</span> <span class="user-input">${cmd}</span>`;
+        commandLine.innerHTML = `<span class="prompt">user@anonymous:~$ </span> <span class="user-input">${cmd}</span>`;
         terminalBody.appendChild(commandLine);
 
         const output = document.createElement('div');
