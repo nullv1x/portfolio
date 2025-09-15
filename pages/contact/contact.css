@@ -49,10 +49,6 @@
     box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.3);
     border-color: var(--sena-orange);
 }
-.channel-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
 .channel-card h3 {
     margin-bottom: 0.5rem;
     color: var(--sena-orange);
